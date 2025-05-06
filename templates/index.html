@@ -1,0 +1,21 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Learning Plan</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Create a Learning Plan</h2>
+        <form action="/generate" method="post">
+            <label>Enter your learning goal:</label>
+            <input type="text" name="goal" required>
+            <button type="submit">Generate Plan</button>
+        </form>
+        <p><a href="/my-plans">My Plans</a> | <a href="/logout">Logout</a></p>
+    </div>
+</body>
+</html>
+

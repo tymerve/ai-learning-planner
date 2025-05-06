@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning Plan</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>📘 Learning Plan for: {{ goal }}</h1>
+
+        <h2>📝 Plan Details:</h2>
+        <div class="plan-output">
+            {{ plan }}
+        </div>
+
+        <h2>📊 Weekly Timeline:</h2>
+        <canvas id="chart" width="400" height="200"></canvas>
+
+        <script>
+            const ctx = document.getElementById('chart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: {{ topics | tojson }},
+                    datasets: [{
+                        label: 'Estimated Weeks',
+                        data: {{ durations | tojson }},
+                        backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'x',
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                precision: 0
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                autoSkip: false,
+                                maxRotation: 45,
+                                minRotation: 45
+                            }
+                        }
+                    }
+                }
+            });
+        </script>
+
+        <a href="/my-plans" class="btn">← Back to My Plans</a>
+    </div>
+</body>
+</html>

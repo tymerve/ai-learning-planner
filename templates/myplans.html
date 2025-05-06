@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Plans</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 My Learning Plans</h1>
+
+        {% if plans %}
+            <ul>
+                {% for plan in plans %}
+                    <li style="margin: 15px 0;">
+                        <strong>{{ plan.goal }}</strong>
+                        <div style="margin-top: 5px;">
+                            <a href="/my-plans/{{ plan.id }}" class="btn">View</a>
+                            <form action="/delete/{{ plan.id }}" method="post" style="display:inline;">
+                                <button type="submit" class="btn" style="background-color:#dc3545;">Delete</button>
+                            </form>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You don't have any saved plans yet.</p>
+        {% endif %}
+
+        <a href="/generate" class="btn">+ Create New Plan</a>
+    </div>
+</body>
+</html>
+
+
+
