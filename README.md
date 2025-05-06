@@ -13,21 +13,13 @@ Bu proje, kullanıcıların hedeflerine göre kişiselleştirilmiş haftalık ö
 
 ## Kurulum
 
-```bash
-git clone https://github.com/kullaniciadi/proje-adi.git
-cd proje-adi
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-```
 
 ## Ortam Dosyası
 
-`.env.example` dosyasını `.env` olarak kopyalayın ve kendi API anahtarınızı girin:
+`.env.example` dosyasını `.env` olarak kopyalayın ve kendi API anahtarınızı girin
 
-```bash
-cp .env.example .env
-```
+
 
 ## Uygulamayı Başlat
 
